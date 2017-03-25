@@ -1,10 +1,13 @@
 <?php
-
 namespace Teej;
 
-use Timber\Timber;
-use Timber\Menu as TimberMenu;
-use Timber\Site as TimberSite;
+use Timber;
+use TimberMenu;
+use TimberSite;
+use Twig_Extension_StringLoader;
+use Twig_SimpleFilter;
+
+require __DIR__ . '/vendor/autoload.php';
 
 if (!class_exists('Timber')) {
     add_action('admin_notices', function () {
@@ -52,11 +55,15 @@ class TeejSite extends TimberSite
         return $context;
     }
 
+    public function mix($asset)
+    {
+        return get_template_directory_uri() . mix($asset, __DIR__);
+    }
+
     public function addToTwig($twig)
     {
-        /* this is where you can add your own functions to twig */
-        // $twig->addExtension( new Twig_Extension_StringLoader() );
-        // $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
+        $twig->addExtension(new Twig_Extension_StringLoader());
+        $twig->addFilter('mix', new Twig_SimpleFilter('mix', [$this, 'mix']));
         return $twig;
     }
 }

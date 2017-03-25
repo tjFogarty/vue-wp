@@ -1,0 +1,46 @@
+[
+    {
+        "name": "ibox/mix-function",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/juanem1/mix-function.git",
+            "reference": "8ba913c54024cf90b7210de096ea03acd48623d2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/juanem1/mix-function/zipball/8ba913c54024cf90b7210de096ea03acd48623d2",
+            "reference": "8ba913c54024cf90b7210de096ea03acd48623d2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2017-02-08T18:29:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "index.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Juan Emilio Turk",
+                "email": "juanemilioturk@gmail.com",
+                "homepage": "http://ideasbox.com.ar"
+            }
+        ],
+        "description": "Laravel mix function to render versioned assetes",
+        "keywords": [
+            "Laraver Mix",
+            "helper function",
+            "laravel"
+        ]
+    }
+]

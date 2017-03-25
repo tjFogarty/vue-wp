@@ -1,0 +1,20 @@
+{
+  "name": "teej",
+  "version": "1.0.0",
+  "description": "Personal WP Theme",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "author": "TJ Fogarty",
+  "private": true,
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "cross-env": "^3.2.4",
+    "laravel-mix": "^0.9.2",
+    "webpack": "^2.3.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
