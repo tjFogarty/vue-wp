@@ -22,13 +22,6 @@ html {
   overflow-y: scroll; /* [2] */
   padding: 1rem;
   opacity: 0;
-  transition: opacity ease 0.2s;
-
-  &.wf-active,
-  &.wf-inactive,
-  .no-js {
-    opacity: 1;
-  }
 
   @include bp-medium {
     font-size: 0.875em; /* 14px */

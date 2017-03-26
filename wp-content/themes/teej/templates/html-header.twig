@@ -3,30 +3,48 @@
 <head>
   <meta charset="{{ site.charset }}">
   <title>
-      {% if wp_title %}
-          {{ wp_title }} - {{ site.name }}
-      {% else %}
-          {{ site.name }}
-      {% endif %}
+    {% if wp_title %}
+      {{ wp_title }} - {{ site.name }}
+    {% else %}
+      {{ site.name }}
+    {% endif %}
   </title>
   <meta name="description" content="{{ site.description }}">
 
-  <link rel="stylesheet" href="{{ 'assets/css/main.css' | mix }}">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="pingback" href="{{ site.pingback_url }}">
 
+  <link rel="preload" href="{{ 'assets/css/main.css' | mix }}" as="style" onload="this.rel='stylesheet'">
+
+  <noscript>
+    <link rel="stylesheet" href="{{ 'assets/css/main.css' | mix }}">
+  </noscript>
+
+  {% include 'load-css.twig' %}
+
+  <style>
+    /* try prevent FOUT */
+    html {
+      transition: opacity ease 0.2s;
+      opacity: 0;
+    }
+
+    .wf-active,
+    .wf-inactive,
+    .no-js {
+      opacity: 1;
+    }
+  </style>
+
   <script>
     (function (doc) {
-      let page = doc.querySelector('html');
-
+      var page = doc.querySelector('html');
       page.classList.remove('no-js');
       page.classList.add('js');
     })(document);
-  </script>
 
-  <script>
     WebFontConfig = {
       google: { families: ['Open Sans'] }
     };
