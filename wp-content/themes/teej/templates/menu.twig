@@ -1,7 +1,7 @@
 {% if menu %}
-	<ul>
+	<ul class="o-list-inline">
 	{% for item in menu %}
-		<li class="{{item.classes | join(' ')}}">
+		<li class="{{item.classes | join(' ')}} o-list-inline__item">
 			<a href="{{item.get_link}}">{{item.title}}</a>
 			{% include "menu.twig" with {'menu': item.get_children} %}
 		</li>
