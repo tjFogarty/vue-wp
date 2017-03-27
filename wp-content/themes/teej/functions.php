@@ -30,12 +30,36 @@ class TeejSite extends TimberSite
         add_theme_support('post-formats');
         add_theme_support('post-thumbnails');
         add_theme_support('menus');
-        add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption'));
-        add_filter('timber_context', array($this, 'addToContext'));
-        add_filter('get_twig', array($this, 'addToTwig'));
-        add_action('init', array($this, 'registerPostTypes'));
-        add_action('init', array($this, 'registerTaxonomies'));
+        add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
+        add_filter('timber_context', [$this, 'addToContext']);
+        add_filter('get_twig', [$this, 'addToTwig']);
+        add_action('init', [$this, 'registerPostTypes']);
+        add_action('init', [$this, 'registerTaxonomies']);
+        add_action('wp_enqueue_scripts', [$this, 'unloadAssets']);
+
+        remove_action('wp_head', 'print_emoji_detection_script', 7);
+        remove_action('admin_print_scripts', 'print_emoji_detection_script');
+        remove_action('wp_print_styles', 'print_emoji_styles');
+        remove_action('admin_print_styles', 'print_emoji_styles');
+
+        add_filter('style_loader_src', [$this, 'removeAssetVer'], 10, 2);
+        add_filter('script_loader_src', [$this, 'removeAssetVer'], 10, 2);
+
         parent::__construct();
+    }
+
+    public function removeAssetVer($src)
+    {
+        if (strpos($src, '?ver=')) {
+            $src = remove_query_arg('ver', $src);
+        }
+
+        return $src;
+    }
+
+    public function unloadAssets()
+    {
+        wp_deregister_script('wp-embed');
     }
 
     public function registerPostTypes()
