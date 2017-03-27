@@ -16,6 +16,7 @@
 
 @import 'elements/blockquote';
 @import 'elements/headings';
+@import 'elements/forms';
 @import 'elements/hr';
 @import 'elements/html';
 @import 'elements/images';
@@ -33,6 +34,7 @@
 @import 'components/btn';
 @import 'components/footer';
 @import 'components/header';
+@import 'components/posts';
 @import 'components/style-guide';
 
 @import 'utilities/align';
@@ -40,3 +42,6 @@
 @import 'utilities/color';
 @import 'utilities/hide';
 @import 'utilities/spacing';
+
+// Vendor
+@import 'vendor/prism';
