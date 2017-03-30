@@ -406,7 +406,8 @@ plugins.push(
 
 plugins.push(
   new CleanWebpackPlugin(['assets/js', 'assets/css'], {
-    verbose: true
+    verbose: true,
+    watch: true
   })
 );
 

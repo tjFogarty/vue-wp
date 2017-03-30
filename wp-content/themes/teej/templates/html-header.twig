@@ -16,6 +16,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="pingback" href="{{ site.pingback_url }}">
 
+  <link rel="preconnect" href="https://fonts.google.com/" crossorigin>
+
   <link rel="preload" href="{{ 'assets/css/main.css' | mix }}" as="style" onload="this.rel='stylesheet'">
 
   <noscript>
@@ -26,7 +28,7 @@
 
   <style>
     /* try prevent FOUT */
-    html {
+    /*html {
       transition: opacity ease 0.2s;
       opacity: 0;
     }
@@ -35,7 +37,7 @@
     .wf-inactive,
     .no-js {
       opacity: 1;
-    }
+    }*/
   </style>
 
   <script>
@@ -43,10 +45,19 @@
       var page = doc.querySelector('html');
       page.classList.remove('no-js');
       page.classList.add('js');
+
+      if (sessionStorage.fonts) {
+        doc.documentElement.classList.add('wf-active');
+      }
     })(document);
 
     WebFontConfig = {
-      google: { families: ['Open Sans'] }
+      google: {
+        families: ['Libre Baskerville', 'Raleway']
+      },
+      active: function() {
+        sessionStorage.fonts = true;
+      }
     };
 
     (function(d) {

@@ -5,6 +5,7 @@
 a {
   color: $color-link;
   text-decoration: underline;
+  text-decoration-skip: ink;
 
   &:hover {
     color: $color-hover;
