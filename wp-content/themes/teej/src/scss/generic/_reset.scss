@@ -17,6 +17,10 @@ fieldset, legend {
   padding: 0;
 }
 
+pre {
+  max-width: 100%;
+  overflow: scroll;
+}
 
 /**
  * Remove trailing margins from nested lists.

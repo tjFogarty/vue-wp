@@ -8,6 +8,7 @@
 @import 'tools/breakpoints';
 @import 'tools/clearfix';
 @import 'tools/hidden';
+@import 'tools/drop-cap';
 
 @import 'generic/box-sizing';
 @import 'generic/normalize';
@@ -35,7 +36,7 @@
 @import 'components/footer';
 @import 'components/header';
 @import 'components/posts';
-@import 'components/style-guide';
+@import 'components/navs';
 
 @import 'utilities/align';
 @import 'utilities/clearfix';

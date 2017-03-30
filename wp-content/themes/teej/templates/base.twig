@@ -7,18 +7,17 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<header class="header">
+		<header class="c-header">
 			{% block header %}
-				<div class="o-wrapper">
-					<div class="o-layout o-layout--align-center o-layout--guttered">
-            <h1 class="hdr-logo" role="banner">
-              <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-            </h1>
-            <nav class="nav-main" role="navigation">
-              {% include "menu.twig" with {'menu': menu.get_items} %}
-            </nav><!-- #nav -->
-          </div>
-				</div>
+				<div class="c-header__content o-wrapper">
+          <h1 class="c-header__logo" role="banner">
+            <a class="c-header__logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+          </h1>
+
+          <nav class="c-header__nav c-nav--primary" role="navigation">
+            {% include "menu.twig" with {'menu': menu.get_items} %}
+          </nav>
+        </div>
 			{% endblock %}
 		</header>
 

@@ -9,3 +9,11 @@ form {
 label {
   display: block;
 }
+
+input,
+select,
+textarea {
+  border: 1px solid $colour-dark-blue;
+  border-radius: 3px;
+  margin-bottom: 1em;
+}

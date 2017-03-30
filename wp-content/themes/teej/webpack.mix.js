@@ -14,6 +14,10 @@ let mix = require('laravel-mix');
 mix.js('src/js/main.js', 'assets/js')
    .sass('src/scss/main.scss', 'assets/css')
    .version()
+   .browserSync({
+    files: ['**/*.twig', 'assets/**/*.*'],
+    proxy: 'tjfogarty.dev'
+   })
    .sourceMaps()
    .autoload({});
 

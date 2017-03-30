@@ -26,15 +26,18 @@ $bp-full: 1600px;
 
 // Colors shouldn't be used directly but reassigned
 $color-white: #fff;
+$colour-off-white: #f1f1f1;
 $color-black: #000;
 $color-very-light-grey: #ccc;
 $color-light-grey: #999;
 $color-medium-grey: #666;
 $color-dark-grey: #333;
+$colour-dark-blue: #012A36;
 
 // Text
 $color-bg: $color-white;
 $color-text: $color-black;
+$colour-headings: $colour-dark-blue;
 
 // Links
 $color-link: $color-medium-grey;

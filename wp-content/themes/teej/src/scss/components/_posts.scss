@@ -2,3 +2,11 @@
    #POSTS
    ========================================================================== */
 
+.c-post__title-link {
+  color: $colour-dark-blue;
+  text-decoration: none;
+}
+
+.c-post__body {
+  // @include drop-cap;
+}
