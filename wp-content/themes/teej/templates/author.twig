@@ -1,7 +1,35 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	{% for post in posts %}
-		{% include ["tease-"~post.post_type~".twig", "tease.twig"] %}
-	{% endfor %}
+  <div class="o-wrapper">
+    <ul class="o-list-bare c-grid">
+      {% for post in posts %}
+        <li class="c-grid__item">
+          {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="c-pagination">
+      {% if pagination.prev %}
+        <a class="c-pagination__prev c-pagination__link" href="{{pagination.prev.link}}">Prev</a>
+        {% endif %}
+
+        <ul class="c-pagination__list">
+          {% for page in pagination.pages %}
+            <li class="c-pagination__item">
+              {% if page.link %}
+                <a class="c-pagination__link" href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+              {% else %}
+                <span class="c-pagination__no-link" class="{{page.class}}">{{page.title}}</span>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if pagination.next %}
+          <a class="c-pagination__link c-pagination__link" href="{{pagination.next.link}}">Next</a>
+        {% endif %}
+    </div>
+  </div>
 {% endblock %}
