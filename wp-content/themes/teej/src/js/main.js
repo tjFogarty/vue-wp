@@ -1,5 +1,7 @@
 import Utils from './utils';
+import Barba from 'barba.js';
 
 Utils.ready(() => {
-  console.log('something');
+  Barba.Pjax.start();
+  Barba.Prefetch.init();
 });

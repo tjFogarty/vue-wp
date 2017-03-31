@@ -18,8 +18,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "fetch-inject": "^1.5.7",
-    "normalize-scss": "^6.0.0",
-    "whatwg-fetch": "^2.0.3"
+    "barba.js": "^1.0.0",
+    "normalize-scss": "^6.0.0"
   }
 }

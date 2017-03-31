@@ -3,9 +3,11 @@
 {% block content %}
   <div class="o-wrapper">
 
-    <ul class="o-list-bare">
+    <ul class="o-list-bare c-grid">
     	{% for post in posts %}
-    		<li>{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}</li>
+    		<li class="c-grid__item">
+          {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+        </li>
     	{% endfor %}
     </ul>
 

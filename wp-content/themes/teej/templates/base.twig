@@ -21,18 +21,25 @@
 			{% endblock %}
 		</header>
 
-		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
+		<section id="barba-wrapper" role="main">
+      <div class="barba-container">
+
+  			{% if title %}
+          <div class="o-wrapper">
+            <h1>{{ title }}</h1>
+          </div>
+        {% endif %}
+  			<div class="wrapper {{sidebar_class}}">
+  				{% block content %}
+  					Sorry, no content
+  				{% endblock %}
+  			</div>
+  			{% if sidebar %}
+  				<aside class="layout-sidebar">
+  					{{sidebar}}
+  				</aside>
+  			{% endif %}
+      </div>
 		</section>
 
 		{% block footer %}

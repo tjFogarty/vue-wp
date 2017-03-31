@@ -1,0 +1,32 @@
+/* ==========================================================================
+   #GRIDVIEW
+   ========================================================================== */
+
+.c-grid {
+  display: block;
+
+  @include bp-medium {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @supports (display: grid) {
+      display: grid;
+      grid-gap: 55px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+    }
+  }
+}
+
+.c-grid__item {
+  @include bp-medium {
+    flex: 1 0 49%;
+
+    @supports not (display: grid) {
+      &:nth-child(even) {
+        padding-left: 30px;
+      }
+    }
+  }
+}
