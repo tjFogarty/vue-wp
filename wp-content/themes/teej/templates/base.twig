@@ -7,19 +7,8 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<header class="c-header">
-			{% block header %}
-				<div class="c-header__content o-wrapper">
-          <h1 class="c-header__logo" role="banner">
-            <a class="c-header__logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-          </h1>
 
-          <nav class="c-header__nav c-nav--primary" role="navigation">
-            {% include "menu.twig" with {'menu': menu.get_items} %}
-          </nav>
-        </div>
-			{% endblock %}
-		</header>
+    {% include 'site-header.twig' %}
 
 		<section id="barba-wrapper" role="main">
       <div class="barba-container">
@@ -29,14 +18,16 @@
             <h1>{{ title }}</h1>
           </div>
         {% endif %}
+
   			<div class="wrapper {{sidebar_class}}">
   				{% block content %}
-  					Sorry, no content
+  					<p>Sorry, no content. I don't know what happened. I'm so sorry.</p>
   				{% endblock %}
   			</div>
+
   			{% if sidebar %}
   				<aside class="layout-sidebar">
-  					{{sidebar}}
+  					{{ sidebar }}
   				</aside>
   			{% endif %}
       </div>
@@ -49,7 +40,7 @@
 			{{ function('wp_footer') }}
 		{% endblock %}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js" defer></script>
+    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js" defer></script>#}
     <script src="{{ 'assets/js/main.js' | mix }}" defer></script>
 	</body>
 </html>

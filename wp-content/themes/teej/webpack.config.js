@@ -46,7 +46,7 @@ module.exports.context = Mix.Paths.root();
  |
  */
 
-module.exports.entry = Mix.entry();
+module.exports.entry = Mix.entry().get();
 
 
 
@@ -121,7 +121,11 @@ let rules = [
     {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader' + Mix.babelConfig()
+        loader: 'babel-loader' + Mix.babelConfig(),
+        options: {
+          presets: [['es2015', {modules: false}]],
+          plugins: ['syntax-dynamic-import']
+        }
     },
 
     {
@@ -201,7 +205,7 @@ if (Mix.preprocessors) {
     });
 }
 
-module.exports.module = { rules }
+module.exports.module = { rules };
 
 
 
@@ -262,7 +266,7 @@ module.exports.performance = { hints: false };
  |
  */
 
-module.exports.devtool = Mix.sourcemaps;
+module.exports.devtool = Mix.options.sourcemaps;
 
 
 
@@ -355,10 +359,10 @@ if (Mix.copy) {
     });
 }
 
-if (Mix.extract) {
+if (Mix.entry().hasExtractions()) {
     plugins.push(
         new webpack.optimize.CommonsChunkPlugin({
-            names: Mix.entryBuilder.extractions,
+            names: Mix.entry().getExtractions(),
             minChunks: Infinity
         })
     );
@@ -376,8 +380,8 @@ if (Mix.options.purifyCss) {
 
     // By default, we'll scan all Blade and Vue files in our project.
     let paths = glob.sync(Mix.Paths.root('resources/views/**/*.blade.php')).concat(
-        Mix.js.reduce((carry, js) => {
-            return carry.concat(glob.sync(js.entry.map(entry => entry.base) + '/**/*.vue'));
+        Mix.entry().scripts.reduce((carry, js) => {
+            return carry.concat(glob.sync(js.base + '/**/*.vue'));
         }, [])
     );
 
@@ -392,24 +396,30 @@ if (Mix.inProduction) {
             'process.env': {
                 NODE_ENV: '"production"'
             }
-        }),
-
-        new webpack.optimize.UglifyJsPlugin(Mix.options.uglify)
+        })
     );
+
+    if (Mix.options.uglify) {
+        plugins.push(
+            new webpack.optimize.UglifyJsPlugin(Mix.options.uglify)
+        );
+    }
 }
 
 plugins.push(
     new webpackPlugins.WebpackOnBuildPlugin(
-        stats => Mix.events.fire('build', stats)
-    )
+        stats => global.events.fire('build', stats)
+    ),
+
+    new CleanWebpackPlugin(['assets/js', 'assets/css'], {
+      verbose: true,
+      watch: true
+    })
 );
 
-plugins.push(
-  new CleanWebpackPlugin(['assets/js', 'assets/css'], {
-    verbose: true,
-    watch: true
-  })
-);
+if (! Mix.entry().hasScripts()) {
+    plugins.push(new webpackPlugins.MockEntryPlugin(Mix.output().path));
+}
 
 module.exports.plugins = plugins;
 

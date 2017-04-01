@@ -1,19 +1,17 @@
 import Utils from './utils';
-import Barba from 'barba.js';
-import * as analytics from './analytics/base.js';
+import Pjax from './modules/pjax';
 
-Utils.ready(() => {
-  analytics.init();
-  Barba.Pjax.start();
-  Barba.Prefetch.init();
+import('./analytics/base')
+  .then(analytics => analytics.init());
 
-  // track page views when using pjax
-  Barba.Dispatcher.on('newPageReady', () => {
-    ga('send', 'pageview', window.location.pathname);
-  });
+Utils.documentReady(() => {
+  let pre = document.querySelector('pre');
 
-  Barba.Dispatcher.on('transitionCompleted', () => {
-    Prism.highlightAll();
-  });
+  import('barba.js')
+    .then(Barba => Pjax.init(Barba));
 
+  if (pre) {
+    import('prismjs')
+      .then(Prism => Prism.highlightAll());
+  }
 });

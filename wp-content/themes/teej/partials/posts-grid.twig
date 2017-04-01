@@ -1,0 +1,7 @@
+<ul class="o-list-bare c-grid">
+  {% for post in posts %}
+    <li class="c-grid__item">
+      {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+    </li>
+  {% endfor %}
+</ul>

@@ -21,7 +21,7 @@ if (!class_exists('Timber')) {
     return;
 }
 
-Timber::$dirname = array('templates', 'views');
+Timber::$dirname = array('templates', 'views', 'partials');
 
 class TeejSite extends TimberSite
 {

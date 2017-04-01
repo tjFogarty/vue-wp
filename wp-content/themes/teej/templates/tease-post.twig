@@ -1,13 +1,17 @@
-{% extends "tease.twig" %}
+{% extends 'tease.twig' %}
 
 {% block content %}
 	<h2 class="c-post__title">
-    <a class="c-post__title-link" href="{{post.link}}">{{post.title}}</a>
+    <a class="c-post__title-link" href="{{post.link}}">
+      {{ post.title }}
+    </a>
   </h2>
 
-	<p>{{ post.get_preview(25) }}</p>
+  <div class="c-post__body">
+    <p>{{ post.get_preview(25) }}</p>
+  </div>
 
 	{% if post.thumbnail.src %}
-		<img src="{{post.thumbnail.src}}" />
+		<img src="{{ post.thumbnail.src }}" class="c-post__featured-image">
 	{% endif %}
 {% endblock %}

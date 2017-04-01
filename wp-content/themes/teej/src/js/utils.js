@@ -1,5 +1,5 @@
 const Utils = {
-  ready (fn = () => {}) {
+  documentReady (fn = () => {}) {
     if (document.readyState != 'loading'){
       fn();
     } else {

@@ -4,14 +4,13 @@
 	<div class="c-comment__content">{{ comment.comment_content | wpautop }}</div>
 
 	<section>
-		<!-- child comments -->
 		{% if post.comments %}
 			<h4>Replies</h4>
 			{% for cmt in comment.children %}
-				{% include "comment.twig" with {comment:cmt} %}
+				{% include 'comment.twig' with { comment: cmt } %}
 			{% endfor %}
 		{% endif %}
 
-		{% include "comment-form.twig" %}
+		{% include 'comment-form.twig' %}
 	</section>
 </div>
