@@ -1,5 +1,8 @@
+import Utils from '../utils';
+
 const Pjax = {
   Barba: null,
+  anime: null,
 
   init (Barba) {
     this.Barba = Barba;
@@ -8,22 +11,63 @@ const Pjax = {
     this.Barba.Prefetch.init();
 
     this.addEvents();
+
+    import('animejs')
+      .then(anime => {
+        this.anime = anime;
+        this.setupTransitions();
+      });
   },
 
   addEvents () {
-    // track page views when using pjax
     this.Barba.Dispatcher.on('newPageReady', () => {
       ga('send', 'pageview', window.location.pathname);
+      Utils.detectCodeHighlight();
     });
+  },
 
-    this.Barba.Dispatcher.on('transitionCompleted', () => {
-      let pre = document.querySelector('pre');
+  setupTransitions () {
+    let FadeTransition = this.Barba.BaseTransition.extend({
+      start: function () {
+        Promise
+          .all([this.newContainerLoading, this.fadeOut()])
+          .then(this.fadeIn.bind(this));
+      },
 
-      if (pre) {
-        import('prismjs')
-          .then(Prism => Prism.highlightAll());
+      fadeOut: function () {
+        let animation = Pjax.anime({
+          targets: this.oldContainer,
+          opacity: 0
+        });
+
+        return animation.finish;
+      },
+
+      fadeIn: function () {
+        let _this = this;
+        let el = this.newContainer;
+
+        this.oldContainer.style.display = 'none';
+
+        el.style.visibility = 'visible';
+        el.style.opacity = 0;
+
+        window.scroll(0, 0);
+
+        let animation = Pjax.anime({
+          targets: el,
+          opacity: 1
+        });
+
+        animation.complete = function () {
+          _this.done();
+        };
       }
     });
+
+    this.Barba.Pjax.getTransition = function() {
+      return FadeTransition;
+    };
   }
 };
 

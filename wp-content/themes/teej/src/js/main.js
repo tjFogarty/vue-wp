@@ -5,13 +5,8 @@ import('./analytics/base')
   .then(analytics => analytics.init());
 
 Utils.documentReady(() => {
-  let pre = document.querySelector('pre');
+  Utils.detectCodeHighlight();
 
   import('barba.js')
     .then(Barba => Pjax.init(Barba));
-
-  if (pre) {
-    import('prismjs')
-      .then(Prism => Prism.highlightAll());
-  }
 });

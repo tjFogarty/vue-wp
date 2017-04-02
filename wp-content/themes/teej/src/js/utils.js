@@ -5,6 +5,13 @@ const Utils = {
     } else {
       document.addEventListener('DOMContentLoaded', fn);
     }
+  },
+
+  detectCodeHighlight () {
+    if (document.querySelector('pre')) {
+      import('prismjs')
+        .then(Prism => Prism.highlightAll());
+    }
   }
 };
 
