@@ -4,19 +4,20 @@ const Pjax = {
   Barba: null,
   anime: null,
 
-  init (Barba) {
-    this.Barba = Barba;
+  init () {
+    Promise.all([
+      import('barba.js'),
+      import('animejs')
+    ]).then(([Barba, anime]) => {
+      this.Barba = Barba;
+      this.anime = anime;
 
-    this.Barba.Pjax.start();
-    this.Barba.Prefetch.init();
+      this.Barba.Pjax.start();
+      this.Barba.Prefetch.init();
 
-    this.addEvents();
-
-    import('animejs')
-      .then(anime => {
-        this.anime = anime;
-        this.setupTransitions();
-      });
+      this.addEvents();
+      this.setupTransitions();
+    });
   },
 
   addEvents () {
@@ -37,30 +38,32 @@ const Pjax = {
       fadeOut: function () {
         let animation = Pjax.anime({
           targets: this.oldContainer,
-          opacity: 0
+          opacity: 0,
+          translateY: 30
         });
 
         return animation.finish;
       },
 
       fadeIn: function () {
-        let _this = this;
         let el = this.newContainer;
 
         this.oldContainer.style.display = 'none';
 
         el.style.visibility = 'visible';
         el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
 
         window.scroll(0, 0);
 
         let animation = Pjax.anime({
           targets: el,
-          opacity: 1
+          opacity: 1,
+          translateY: 0
         });
 
-        animation.complete = function () {
-          _this.done();
+        animation.complete = () => {
+          this.done();
         };
       }
     });

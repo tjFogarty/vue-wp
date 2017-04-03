@@ -6,7 +6,5 @@ import('./analytics/base')
 
 Utils.documentReady(() => {
   Utils.detectCodeHighlight();
-
-  import('barba.js')
-    .then(Barba => Pjax.init(Barba));
+  Pjax.init();
 });

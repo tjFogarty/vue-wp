@@ -8,7 +8,9 @@
   </h2>
 
   <div class="c-post__body">
-    <p>{{ post.get_preview(25) }}</p>
+    <p>{{ post.post_content | excerpt(25) }}</p>
+
+    <a class="c-btn c-btn--primary" href="{{ post.link }}">Read More</a>
   </div>
 
 	{% if post.thumbnail.src %}

@@ -4,11 +4,12 @@
 
 .c-header {
   margin-bottom: 2em;
-  padding: 1em;
+  padding: 1em 0;
   top: 0;
   left: 0;
   width: 100%;
   background: $colour-dark-blue;
+  z-index: 2;
 
   @supports(backdrop-filter: blur(10px)) {
     background: rgba($colour-dark-blue, 0.9);
