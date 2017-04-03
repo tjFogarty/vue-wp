@@ -3,7 +3,7 @@
 {% block content %}
   <div class="o-wrapper">
 
-    {% cache 'index/posts' posts %}
+    {% cache 'index/content' posts %}
       {% include 'posts-grid-paginated.twig' %}
     {% endcache %}
 
