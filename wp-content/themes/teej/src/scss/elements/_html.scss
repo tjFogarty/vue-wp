@@ -20,6 +20,7 @@ html {
   line-height: 1.45; /* [1] */
   min-height: 100%; /* [3] */
   overflow-y: scroll; /* [2] */
+  font-weight: 200;
   background: $colour-off-white;
 
   @include bp-medium {
