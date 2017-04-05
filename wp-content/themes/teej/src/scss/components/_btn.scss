@@ -20,6 +20,7 @@
   cursor: pointer; /* [5] */
   padding: 0.5rem 1rem;
   transition: $global-transition;
+  border: none;
   border-radius: $global-radius;
 }
 
@@ -27,7 +28,7 @@
    ========================================================================== */
 
 .c-btn--primary {
-  background-color: $color-link;
+  background-color: $colour-dark-blue;
 
   &,
   &:hover,
@@ -39,7 +40,7 @@
 
   &:hover,
   &:focus {
-    background-color: $color-hover;
+    background-color: lighten($colour-dark-blue, 10%);
   }
 }
 

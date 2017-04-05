@@ -2,19 +2,25 @@
    #GRIDVIEW
    ========================================================================== */
 
+/**
+ * 1. If a column doesn't meet our min width,
+ *    then we tell it to go full width - responsive w/out MQs
+ * 2. When grid isn't supported, fall back to flexbox
+ */
+
 .c-grid {
   display: block;
 
   @supports (display: grid) {
     display: grid;
     grid-gap: 55px;
-    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr)); /* [1] */
     grid-auto-rows: auto;
   }
 
   @include bp-medium {
     @supports not (display: grid) {
-      display: flex;
+      display: flex; /* [2] */
       justify-content: space-between;
       flex-wrap: wrap;
     }
