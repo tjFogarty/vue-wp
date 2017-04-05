@@ -1,6 +1,7 @@
 {
 
     "require": {
-        "ibox/mix-function": "^1.0"
+        "ibox/mix-function": "^1.0",
+        "matthiasmullie/minify": "^1.3"
     }
 }

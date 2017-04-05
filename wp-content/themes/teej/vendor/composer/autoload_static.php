@@ -10,9 +10,30 @@ class ComposerStaticInitcc3b1b54d6fb13e39e2ff4187b10dbe7
         '80329cbfe6ae809b6435a6f1526476c0' => __DIR__ . '/..' . '/ibox/mix-function/index.php',
     );
 
+    public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'MatthiasMullie\\PathConverter\\' => 29,
+            'MatthiasMullie\\Minify\\' => 22,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'MatthiasMullie\\PathConverter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/matthiasmullie/path-converter/src',
+        ),
+        'MatthiasMullie\\Minify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/matthiasmullie/minify/src',
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitcc3b1b54d6fb13e39e2ff4187b10dbe7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitcc3b1b54d6fb13e39e2ff4187b10dbe7::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

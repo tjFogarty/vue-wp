@@ -6,6 +6,7 @@ use TimberMenu;
 use TimberSite;
 use Twig_Extension_StringLoader;
 use Twig_SimpleFilter;
+use MatthiasMullie\Minify;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -84,10 +85,20 @@ class TeejSite extends TimberSite
         return get_template_directory_uri() . mix($asset, __DIR__);
     }
 
+    public function minify($asset)
+    {
+        $sourcePath = get_template_directory() . mix($asset, __DIR__);
+
+        $minifier = new Minify\CSS($sourcePath);
+
+        return $minifier->minify();
+    }
+
     public function addToTwig($twig)
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addFilter('mix', new Twig_SimpleFilter('mix', [$this, 'mix']));
+        $twig->addFilter('minify', new Twig_SimpleFilter('minify', [$this, 'minify']));
         return $twig;
     }
 }
