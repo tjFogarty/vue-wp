@@ -1,13 +1,33 @@
-<header class="c-header">
+<header class="c-header" role="banner">
   {% block header %}
-    <div class="c-header__content o-wrapper">
-      <h1 class="c-header__logo" role="banner">
-        <a class="c-header__logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-      </h1>
 
+    <div class="c-header__nav-container o-wrapper">
       <nav class="c-header__nav c-nav--primary" role="navigation">
         {% include 'menu.twig' with {'menu': menu.get_items} %}
       </nav>
     </div>
+
+    <div class="c-header__content o-wrapper">
+
+      <h1 class="c-header__logo">
+        {% if title %}
+          {{ title }}
+        {% else %}
+          <a class="c-header__logo-link" href="{{site.url}}" rel="home">
+            {{ site.name }}
+          </a>
+        {% endif %}
+      </h1>
+
+      <p class="c-header__tagline">
+        {% if title %}
+          {{ site.name }}
+        {% else %}
+          {{ site.description }}
+        {% endif %}
+      </p>
+
+    </div>
+
   {% endblock %}
 </header>

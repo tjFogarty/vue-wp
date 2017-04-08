@@ -3,8 +3,21 @@
    ========================================================================== */
 
 .c-footer {
-  border-top: 1px solid $color-border;
+  @include honeycomb-bg($colour-dark-blue, lighten($colour-dark-blue, 1.5%));
+  @include angle-divider($top: -40px, $degrees: 2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2em;
+  color: $colour-off-white;
+  height: 10vh;
+  min-height: 100px;
   font-size: 0.875rem;
   margin-top: 2em;
   padding-top: 1em;
+}
+
+.c-footer__text {
+  margin: 2em 0 0;
 }

@@ -3,26 +3,19 @@
    ========================================================================== */
 
 .c-header {
+  @include honeycomb-bg($colour-dark-blue, lighten($colour-dark-blue, 1.5%));
+  @include angle-divider($bottom: -30px, $degrees: -2);
+
   margin-bottom: 2em;
-  padding: 1em 0;
+  color: $colour-off-white;
   top: 0;
   left: 0;
   width: 100%;
-  background: $colour-dark-blue;
-  z-index: 2;
-
-  @supports(backdrop-filter: blur(10px)) {
-    background: rgba($colour-dark-blue, 0.9);
-    backdrop-filter: blur(10px);
-  }
-
-  @include bp-large {
-    position: sticky;
-  }
+  height: 25vh;
+  min-height: 230px;
 }
 
 .c-header__logo {
-  grid-area: logo;
   margin-bottom: 0;
 }
 
@@ -31,25 +24,20 @@
   color: $colour-off-white;
 }
 
+.c-header__nav-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .c-header__nav {
-  grid-area: nav;
-  flex: 1;
+  padding: 1em 0;
 }
 
 .c-header__content {
+  height: 100%;
+  text-align: center;
+}
 
-  @include bp-small {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @supports (display: grid) {
-      display: grid;
-      align-items: center;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto;
-      grid-template-areas:
-        "logo logo nav";
-    }
-  }
+.c-header__logo {
+  color: $colour-off-white;
 }

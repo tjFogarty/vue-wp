@@ -16,25 +16,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="pingback" href="{{ site.pingback_url }}">
 
-{#   <link rel="preload" href="{{ 'assets/css/main.css' | mix }}" as="style">
-
-  <noscript>
-    <link rel="stylesheet" href="{{ 'assets/css/main.css' | mix }}">
-  </noscript>
-
-  {% include 'load-css.twig' %}
- #}
-
   <style>
     {{ 'assets/css/main.css' | minify }}
   </style>
+
   <script>
     (function (doc) {
       var page = doc.querySelector('html');
       page.classList.remove('no-js');
       page.classList.add('js');
-
-      // loadCSS("{{ 'assets/css/main.css' | mix }}");
     })(document);
   </script>
 
