@@ -423,8 +423,11 @@ plugins.push(
           'assets/js/*.js'
         ]
       },
+      externals: [
+        '/offline/'
+      ],
       ServiceWorker: {
-        navigateFallbackURL: '/offline/'
+        navigateFallbackURL: '/'
       },
       AppCache: {
         FALLBACK: {
