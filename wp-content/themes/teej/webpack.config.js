@@ -424,7 +424,12 @@ plugins.push(
         ]
       },
       ServiceWorker: {
-        navigateFallbackURL: '/'
+        navigateFallbackURL: '/offline/'
+      },
+      AppCache: {
+        FALLBACK: {
+          '/': '/offline/'
+        }
       }
     })
 );

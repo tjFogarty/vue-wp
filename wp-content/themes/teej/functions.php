@@ -2,6 +2,7 @@
 namespace Teej;
 
 use Timber;
+use Routes;
 use TimberMenu;
 use TimberSite;
 use Twig_Extension_StringLoader;
@@ -102,5 +103,9 @@ class TeejSite extends TimberSite
         return $twig;
     }
 }
+
+Routes::map('offline', function ($params) {
+    Routes::load('offline.php', null, null, 200);
+});
 
 new TeejSite();

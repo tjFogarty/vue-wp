@@ -3,16 +3,15 @@
    ========================================================================== */
 
 .c-header {
-  @include honeycomb-bg($colour-dark-blue, lighten($colour-dark-blue, 1.5%));
   @include angle-divider($bottom: -30px, $degrees: -2);
 
-  margin-bottom: 2em;
   color: $colour-off-white;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 25vh;
-  min-height: 230px;
+  min-height: 30vh;
+  padding-bottom: 60px;
+
+  @include bp-medium {
+    min-height: 25vh;
+  }
 }
 
 .c-header__logo {

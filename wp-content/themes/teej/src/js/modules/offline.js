@@ -1,3 +1,4 @@
-import * as OfflinePluginRuntime from 'offline-plugin/runtime';
-
-OfflinePluginRuntime.install();
+import('offline-plugin/runtime')
+  .then(OfflinePluginRuntime => {
+    OfflinePluginRuntime.install();
+  });

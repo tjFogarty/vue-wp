@@ -4,7 +4,7 @@
 //
 // *************************************
 
-@mixin angle-divider($degrees, $bottom: '', $top: '') {
+@mixin angle-divider($degrees, $bottom: null, $top: null) {
   position: relative;
   overflow: hidden;
 

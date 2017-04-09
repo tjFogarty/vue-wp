@@ -15,8 +15,7 @@ const Utils = {
   detectCodeHighlight () {
     if (document.querySelector('pre')) {
       import('prismjs')
-        .then(Prism => Prism.highlightAll())
-        .catch(err => console.log(err));
+        .then(Prism => Prism.highlightAll());
     }
   }
 };

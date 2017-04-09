@@ -10,22 +10,21 @@
 
     {% include 'site-header.twig' %}
 
-		<section id="barba-wrapper" role="main">
-      <div class="barba-container">
+		<main class="c-content" role="main">
 
-  			<div class="wrapper {{sidebar_class}}">
-  				{% block content %}
-  					<p>Sorry, no content. I don't know what happened. I'm so sorry.</p>
-  				{% endblock %}
-  			</div>
+			<div class="wrapper {{sidebar_class}}">
+				{% block content %}
+					<p>Sorry, no content. I don't know what happened. I'm so sorry.</p>
+				{% endblock %}
+			</div>
 
-  			{% if sidebar %}
-  				<aside class="layout-sidebar">
-  					{{ sidebar }}
-  				</aside>
-  			{% endif %}
-      </div>
-		</section>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{ sidebar }}
+				</aside>
+			{% endif %}
+
+		</main>
 
 		{% block footer %}
 			<footer id="footer" class="c-footer">
