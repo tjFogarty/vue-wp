@@ -4,6 +4,7 @@ let webpack = require('webpack');
 let Mix = require('laravel-mix').config;
 let webpackPlugins = require('laravel-mix').plugins;
 let CleanWebpackPlugin = require('clean-webpack-plugin');
+let OfflinePlugin = require('offline-plugin');
 
 /*
  |--------------------------------------------------------------------------
@@ -414,6 +415,17 @@ plugins.push(
     new CleanWebpackPlugin(['assets/js', 'assets/css'], {
       verbose: true,
       watch: true
+    }),
+
+    new OfflinePlugin({
+      caches: {
+        main: [
+          'assets/js/*.js'
+        ]
+      },
+      ServiceWorker: {
+        navigateFallbackURL: '/'
+      }
     })
 );
 

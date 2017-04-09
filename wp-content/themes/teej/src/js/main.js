@@ -1,7 +1,5 @@
 import Utils from './utils';
-
-import('./analytics/base')
-  .then(analytics => analytics.init());
+require('./modules/offline');
 
 Utils.documentReady(() => {
   Utils.detectCodeHighlight();
