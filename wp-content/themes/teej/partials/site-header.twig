@@ -5,6 +5,8 @@
       <nav class="c-header__nav c-nav--primary" role="navigation">
         {% include 'menu.twig' with {'menu': menu.get_items} %}
       </nav>
+
+      <button class="js-search c-header__search-button c-btn c-btn--small" type="button">Search</button>
     </div>
 
     <div class="c-header__content o-wrapper">
@@ -29,3 +31,5 @@
 
   {% endblock %}
 </header>
+
+{% include 'search-form.twig' %}

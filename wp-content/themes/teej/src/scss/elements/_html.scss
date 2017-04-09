@@ -13,7 +13,7 @@
  */
 
 html {
-  @include honeycomb-bg($colour-dark-blue, lighten($colour-dark-blue, 1.5%));
+  @include honeycomb-bg($colour-dark-blue, lighten($colour-dark-blue, 2.5%));
 
   color: $color-text;
   font: 16px/1.2 -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;

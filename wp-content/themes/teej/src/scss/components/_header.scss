@@ -25,6 +25,7 @@
 
 .c-header__nav-container {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 
@@ -39,4 +40,8 @@
 
 .c-header__logo {
   color: $colour-off-white;
+}
+
+.c-header__search-button {
+  margin-left: 20px;
 }
