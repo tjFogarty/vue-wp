@@ -1,6 +1,10 @@
 const Utils = {
+  /**
+   * Waits for the DOM to be ready
+   * @param fn
+   */
   documentReady (fn = () => {}) {
-    if (document.readyState != 'loading') {
+    if (document.readyState !== 'loading') {
       fn();
     } else {
       document.addEventListener('DOMContentLoaded', fn);
@@ -10,7 +14,6 @@ const Utils = {
   /**
    * See if there's any code to be highlighted
    * if so, load a library
-   * @return {void}
    */
   detectCodeHighlight () {
     if (document.querySelector('pre')) {
