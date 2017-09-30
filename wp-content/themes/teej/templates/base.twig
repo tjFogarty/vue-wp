@@ -7,34 +7,14 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-
-    {% include 'site-header.twig' %}
-
+	
 		<main class="c-content" role="main">
-
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					<p>Sorry, no content. I don't know what happened. I'm so sorry.</p>
-				{% endblock %}
-			</div>
-
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{ sidebar }}
-				</aside>
-			{% endif %}
-
+			<div id="app"></div>
 		</main>
 
 		{% block footer %}
-			<footer id="footer" class="c-footer">
-				{% include 'footer.twig' %}
-			</footer>
 			{{ function('wp_footer') }}
 		{% endblock %}
 
-    <script src="{{ 'assets/js/manifest.js' | mix }}"></script>
-    <script src="{{ 'assets/js/vendor.js' | mix }}"></script>
-    <script src="{{ 'assets/js/main.js' | mix }}"></script>
 	</body>
 </html>

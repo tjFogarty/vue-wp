@@ -16,18 +16,5 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#012A36">
   <link rel="pingback" href="{{ site.pingback_url }}">
-
-  <style>
-    {{ 'assets/css/main.css' | minify }}
-  </style>
-
-  <script>
-    (function (doc) {
-      var page = doc.querySelector('html');
-      page.classList.remove('no-js');
-      page.classList.add('js');
-    })(document);
-  </script>
-
-
+  
   {{ function('wp_head') }}

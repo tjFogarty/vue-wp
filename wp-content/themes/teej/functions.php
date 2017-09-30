@@ -37,7 +37,7 @@ class TeejSite extends TimberSite
         add_filter('get_twig', [$this, 'addToTwig']);
         add_action('init', [$this, 'registerPostTypes']);
         add_action('init', [$this, 'registerTaxonomies']);
-        add_action('wp_enqueue_scripts', [$this, 'unloadAssets']);
+        add_action('wp_enqueue_scripts', [$this, 'setupAssets']);
 
         remove_action('wp_head', 'print_emoji_detection_script', 7);
         remove_action('admin_print_scripts', 'print_emoji_detection_script');
@@ -59,9 +59,19 @@ class TeejSite extends TimberSite
         return $src;
     }
 
-    public function unloadAssets()
+    public function setupAssets()
     {
         wp_deregister_script('wp-embed');
+        
+        wp_enqueue_style('app-styles', get_stylesheet_directory_uri() . '/assets/css/main.css', [], '', 'all');
+        wp_enqueue_script('app-manifest', get_stylesheet_directory_uri() . '/assets/js/manifest.js', [], false, true);
+        wp_enqueue_script('app-vendor', get_stylesheet_directory_uri() . '/assets/js/vendor.js', [], false, true);
+        wp_enqueue_script('app', get_stylesheet_directory_uri() . '/assets/js/main.js', [], false, true);
+
+        wp_localize_script('app', 'WP_API_SETTINGS', [
+            'root' => esc_url_raw(rest_url()),
+            'nonce' => wp_create_nonce('wp_rest')
+        ]);
     }
 
     public function registerPostTypes()

@@ -5,49 +5,5 @@
 
 @import 'settings/global';
 
-@import 'tools/breakpoints';
-@import 'tools/clearfix';
-@import 'tools/hidden';
-@import 'tools/drop-cap';
-@import 'tools/honeycomb-bg';
-@import 'tools/angle-divider';
-
-@import 'generic/box-sizing';
-@import 'generic/normalize';
-@import 'generic/reset';
-@import 'generic/shared';
-
-@import 'elements/blockquote';
-@import 'elements/headings';
-@import 'elements/forms';
-@import 'elements/hr';
-@import 'elements/html';
-@import 'elements/images';
-@import 'elements/links';
-@import 'elements/lists';
-@import 'elements/tables';
-
-@import 'objects/layout';
-@import 'objects/list-bare';
-@import 'objects/list-inline';
-@import 'objects/media';
-@import 'objects/table';
-@import 'objects/wrapper';
-
-@import 'components/btn';
-@import 'components/forms';
-@import 'components/content';
-@import 'components/footer';
-@import 'components/header';
-@import 'components/posts';
-@import 'components/navs';
-@import 'components/grid';
-
-@import 'utilities/align';
-@import 'utilities/clearfix';
-@import 'utilities/color';
-@import 'utilities/hide';
-@import 'utilities/spacing';
-
 // Vendor
-@import 'vendor/prism';
+@import '~bulma/bulma.sass';

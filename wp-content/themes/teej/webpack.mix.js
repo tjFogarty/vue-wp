@@ -3,25 +3,34 @@ const mix = require('laravel-mix')
 let webpackConfig = {
   output: {
     publicPath: '/wp-content/themes/teej/'
+  },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+    }
   }
 }
 
 let browserSyncConfig = {
-  files: ['**/*.twig'],
+  files: ['**/*.twig', 'assets/js/*.js', 'assets/css/*.css'],
   proxy: 'tjfogarty.dev'
 }
+
+let sassConfig = {}
 
 let extractConfig = ['vue', 'vuex', 'vue-router', 'prismjs']
 
 mix
   .js('src/js/main.js', 'assets/js')
-  .sass('src/scss/main.scss', 'assets/css')
+  .sass('src/scss/main.scss', 'assets/css', sassConfig)
   .browserSync(browserSyncConfig)
   .extract(extractConfig)
   .webpackConfig(webpackConfig)
   .sourceMaps()
   .options({
-    purifyCss: true
+    purifyCss: {
+      paths: ['src/js/**/*.vue']
+    }
   })
 
 // Full API
