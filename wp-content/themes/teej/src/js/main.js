@@ -1,9 +1,5 @@
-import Utils from './utils';
-import SearchForm from './modules/search-form';
-
-require('./modules/offline');
+import Utils from './utils'
 
 Utils.documentReady(() => {
-  Utils.detectCodeHighlight();
-  SearchForm.init();
-});
+
+})

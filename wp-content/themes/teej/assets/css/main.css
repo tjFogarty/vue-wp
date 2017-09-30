@@ -1,0 +1,671 @@
+@charset "UTF-8";
+
+/*
+  Project: teej WordPress theme
+  Author: TJ Fogarty
+ */
+
+/* Fonts
+   ========================================================================== */
+
+/* Breakpoints
+   ========================================================================== */
+
+/* Colors
+   ========================================================================== */
+
+/* ==========================================================================
+   #BOX-SIZING
+   ========================================================================== */
+
+/**
+ * More sensible default box-sizing:
+ * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,*:before,*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+/* ==========================================================================
+   #NORMALIZE
+   ========================================================================== */
+
+/*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
+
+/* Document
+       ========================================================================== */
+
+/**
+     * 1. Change the default font family in all browsers (opinionated).
+     * 2. Correct the line height in all browsers.
+     * 3. Prevent adjustments of font size after orientation changes in
+     *    IE on Windows Phone and in iOS.
+     */
+
+html {
+  font-family: sans-serif;
+  /* 1 */
+  line-height: 1.15;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+}
+
+/* Sections
+       ========================================================================== */
+
+/**
+     * Remove the margin in all browsers (opinionated).
+     */
+
+body {
+  margin: 0;
+}
+
+/**
+     * Add the correct display in IE 9-.
+     */
+
+/**
+     * Correct the font size and margin on `h1` elements within `section` and
+     * `article` contexts in Chrome, Firefox, and Safari.
+     */
+
+/* Grouping content
+       ========================================================================== */
+
+/**
+     * Add the correct display in IE 9-.
+     */
+
+/**
+     * Add the correct margin in IE 8.
+     */
+
+/**
+     * 1. Add the correct box sizing in Firefox.
+     * 2. Show the overflow in Edge and IE.
+     */
+
+/**
+     * Add the correct display in IE.
+     */
+
+/**
+     * 1. Correct the inheritance and scaling of font size in all browsers.
+     * 2. Correct the odd `em` font sizing in all browsers.
+     */
+
+/* Links
+       ========================================================================== */
+
+/**
+     * 1. Remove the gray background on active links in IE 10.
+     * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+     */
+
+/**
+     * Remove the outline on focused links when they are also active or hovered
+     * in all browsers (opinionated).
+     */
+
+/* Text-level semantics
+       ========================================================================== */
+
+/**
+     * 1. Remove the bottom border in Firefox 39-.
+     * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+     */
+
+/**
+     * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+     */
+
+/**
+     * Add the correct font weight in Chrome, Edge, and Safari.
+     */
+
+/**
+     * 1. Correct the inheritance and scaling of font size in all browsers.
+     * 2. Correct the odd `em` font sizing in all browsers.
+     */
+
+/**
+     * Add the correct font style in Android 4.3-.
+     */
+
+/**
+     * Add the correct background and color in IE 9-.
+     */
+
+/**
+     * Add the correct font size in all browsers.
+     */
+
+/**
+     * Prevent `sub` and `sup` elements from affecting the line height in
+     * all browsers.
+     */
+
+/* Embedded content
+       ========================================================================== */
+
+/**
+     * Add the correct display in IE 9-.
+     */
+
+/**
+     * Add the correct display in iOS 4-7.
+     */
+
+/**
+     * Remove the border on images inside links in IE 10-.
+     */
+
+/**
+     * Hide the overflow in IE.
+     */
+
+/* Forms
+       ========================================================================== */
+
+/**
+     * 1. Change the font styles in all browsers (opinionated).
+     * 2. Remove the margin in Firefox and Safari.
+     */
+
+/**
+     * Show the overflow in IE.
+     */
+
+/**
+     * Remove the inheritance of text transform in Edge, Firefox, and IE.
+     * 1. Remove the inheritance of text transform in Firefox.
+     */
+
+/**
+     * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+     *    controls in Android 4.
+     * 2. Correct the inability to style clickable types in iOS and Safari.
+     */
+
+html [type="button"],[type="reset"],[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+[type="button"],[type="reset"],[type="submit"] {
+  /**
+       * Remove the inner border and padding in Firefox.
+       */
+  /**
+       * Restore the focus styles unset by the previous rule.
+       */
+}
+
+[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+     * Show the overflow in Edge.
+     */
+
+/**
+     * 1. Add the correct box sizing in IE 10-.
+     * 2. Remove the padding in IE 10-.
+     */
+
+[type="checkbox"],[type="radio"] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+     * Correct the cursor style of increment and decrement buttons in Chrome.
+     */
+
+[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+     * 1. Correct the odd appearance in Chrome and Safari.
+     * 2. Correct the outline style in Safari.
+     */
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+  /**
+       * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+       */
+}
+
+[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+     * 1. Correct the inability to style clickable types in iOS and Safari.
+     * 2. Change font properties to `inherit` in Safari.
+     */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/**
+     * Change the border, margin, and padding in all browsers (opinionated).
+     */
+
+/**
+     * 1. Correct the text wrapping in Edge and IE.
+     * 2. Correct the color inheritance from `fieldset` elements in IE.
+     * 3. Remove the padding so developers are not caught out when they zero out
+     *    `fieldset` elements in all browsers.
+     */
+
+/**
+     * 1. Add the correct display in IE 9-.
+     * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+     */
+
+/**
+     * Remove the default vertical scrollbar in IE.
+     */
+
+/* Interactive
+       ========================================================================== */
+
+/*
+     * Add the correct display in Edge, IE, and Firefox.
+     */
+
+/*
+     * Add the correct display in all browsers.
+     */
+
+/*
+     * Add the correct display in IE 9-.
+     */
+
+/* Scripting
+       ========================================================================== */
+
+/**
+     * Add the correct display in IE 9-.
+     */
+
+/**
+     * Add the correct display in IE.
+     */
+
+/* Hidden
+       ========================================================================== */
+
+/**
+     * Add the correct display in IE 10-.
+     */
+
+[hidden] {
+  display: none;
+}
+
+/* ==========================================================================
+   #RESET
+   ========================================================================== */
+
+/**
+ * A very simple reset that sits on top of Normalize.css.
+ */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Remove trailing margins from nested lists.
+ */
+
+/**
+ * Remove default table spacing.
+ */
+
+/**
+ * 1. Reset Chrome and Firefox behaviour which sets a `min-width: min-content;`
+ *    on fieldsets.
+ */
+
+/* ==========================================================================
+   #SHARED
+   ========================================================================== */
+
+/**
+ * Shared declarations for certain elements.
+ */
+
+/**
+ * Always declare margins in the same direction:
+ * csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+
+/**
+ * Consistent indentation for lists.
+ */
+
+/* ==========================================================================
+   #BLOCKQUOTES
+   ========================================================================== */
+
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+
+/**
+ * Simple default styles for headings 1 through 6. Anything more opinionated
+ * than simple font-size changes should likely be applied via classes (see:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
+ */
+
+/* ==========================================================================
+   #FORMS
+   ========================================================================== */
+
+/* ==========================================================================
+   #HR
+   ========================================================================== */
+
+/* ==========================================================================
+   #PAGE
+   ========================================================================== */
+
+/**
+ * Simple page-level setup.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ */
+
+html {
+  background: radial-gradient(circle farthest-side at 0% 50%, #012A36 23.5%, rgba(240, 166, 17, 0) 0) 21px 30px, radial-gradient(circle farthest-side at 0% 50%, #013443 24%, rgba(240, 166, 17, 0) 0) 19px 30px, linear-gradient(#012A36 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, #012A36 0) 0 0, linear-gradient(150deg, #012A36 24%, #013443 0, #013443 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #013443 0, #013443 76%, #012A36 0) 0 0, linear-gradient(30deg, #012A36 24%, #013443 0, #013443 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #013443 0, #013443 76%, #012A36 0) 0 0, linear-gradient(90deg, #013443 2%, #012A36 0, #012A36 98%, #013443 0%) 0 0 #012A36;
+  background-size: 40px 60px;
+  color: #000;
+  font: 16px/1.2 -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  /* [1] */
+  /* 16px */
+  line-height: 1.45;
+  /* [1] */
+  min-height: 100%;
+  /* [3] */
+  overflow-y: scroll;
+  /* [2] */
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 0.875em;
+    /* 14px */
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 1em;
+    /* 16px */
+  }
+}
+
+/* ==========================================================================
+   #IMAGES
+   ========================================================================== */
+
+/**
+ * 1. Fluid images for responsive purposes.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+ *    elements when they are dropped into a page as-is. Safer alternative to
+ *    using `display: block;`.
+ */
+
+/**
+ * 1. If a `width` and/or `height` attribute have been explicitly defined, let’s
+ *    not make the image fluid.
+ */
+
+/* ==========================================================================
+   #LINKS
+   ========================================================================== */
+
+/* ==========================================================================
+   #LISTS
+   ========================================================================== */
+
+/* ==========================================================================
+   #TABLES
+   ========================================================================== */
+
+/**
+ * 1. Ensure tables fill up as much space as possible.
+ */
+
+/* ==========================================================================
+   #LAYOUT
+   ========================================================================== */
+
+/* Simple flexbox layout system */
+
+/* ==========================================================================
+   #LIST-BARE
+   ========================================================================== */
+
+/**
+ * Strip list-like appearance from lists by removing their bullets, and any
+ * indentation.
+ */
+
+/* ==========================================================================
+   #LIST-INLINE
+   ========================================================================== */
+
+/**
+ * The list-inline object simply displays a list of items in one line.
+ */
+
+/* ==========================================================================
+   #MEDIA
+   ========================================================================== */
+
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ */
+
+/* Reversed media objects
+   ========================================================================== */
+
+/* Gutterless media objects
+   ========================================================================== */
+
+/* ==========================================================================
+   #TABLE
+   ========================================================================== */
+
+/**
+ * A simple object for manipulating the structure of HTML `table`s.
+ */
+
+/* Equal-width table cells.
+   ========================================================================== */
+
+/**
+ * `table-layout: fixed` forces all cells within a table to occupy the same
+ * width as each other. This also has performance benefits: because the browser
+ * does not need to (re)calculate cell dimensions based on content it discovers, * the table can be rendered very quickly. Further reading:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout#Values
+ */
+
+/* ==========================================================================
+   #WRAPPER
+   ========================================================================== */
+
+/**
+ * Page-level constraining and wrapping elements.
+ */
+
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ */
+
+/* Style variants
+   ========================================================================== */
+
+/* Size variants
+   ========================================================================== */
+
+/* ==========================================================================
+   #FOOTER
+   ========================================================================== */
+
+/* ==========================================================================
+   #HEADER
+   ========================================================================== */
+
+/* ==========================================================================
+   #POSTS
+   ========================================================================== */
+
+/* ==========================================================================
+   #NAVS
+   ========================================================================== */
+
+/* ==========================================================================
+   #GRIDVIEW
+   ========================================================================== */
+
+/**
+ * 1. If a column doesn't meet our min width, *    then we tell it to go full width - responsive w/out MQs
+ * 2. When grid isn't supported, fall back to flexbox
+ */
+
+@supports (display: grid) {
+  .c-grid {
+    display: grid;
+    grid-gap: 55px;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+    /* [1] */
+    grid-auto-rows: auto;
+  }
+}
+
+@media (min-width: 768px) {
+@supports not (display: grid) {
+    .c-grid {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      /* [2] */
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+}
+}
+
+@media (min-width: 768px) {
+@supports not (display: grid) {
+    .c-grid__item {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 49%;
+      flex: 1 0 49%;
+    }
+
+    .c-grid__item:nth-child(even) {
+      padding-left: 30px;
+    }
+}
+}
+
+/* ==========================================================================
+   #ALIGN
+   ========================================================================== */
+
+/* ==========================================================================
+   #CLEARFIX
+   ========================================================================== */
+
+/**
+ * Attach our clearfix mixin to a utility class.
+ */
+
+/* ==========================================================================
+   #COLOR
+   ========================================================================== */
+
+/* ==========================================================================
+   #HIDE
+   ========================================================================== */
+
+/**
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+/**
+ * Hide visually and from screen readers.
+ */
+
+/* ==========================================================================
+   #SPACING
+   @todo generate more generic classes and sizes
+   ========================================================================== */
+
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+/* Code blocks */
+
+/* Inline code */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhc3NldHMvY3NzL21haW4uY3NzIiwic291cmNlUm9vdCI6IiJ9*/

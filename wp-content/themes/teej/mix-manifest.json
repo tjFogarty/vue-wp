@@ -1,4 +1,6 @@
 {
-  "/assets/js/main.js": "/assets/js/main.dfc67f01512ca91e6562.js",
-  "/assets/css/main.css": "/assets/css/main.f08a60ad43cebc1a6feb.css"
+    "/assets/js/vendor.js": "/assets/js/vendor.js",
+    "/assets/js/main.js": "/assets/js/main.js",
+    "/assets/css/main.css": "/assets/css/main.css",
+    "/assets/js/manifest.js": "/assets/js/manifest.js"
 }

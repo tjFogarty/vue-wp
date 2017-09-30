@@ -1,39 +1,40 @@
-let mix = require('laravel-mix');
+const mix = require('laravel-mix')
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for your application, as well as bundling up your JS files.
- |
- */
+let webpackConfig = {
+  output: {
+    publicPath: '/wp-content/themes/teej/'
+  }
+}
 
-mix.js('src/js/main.js', 'assets/js')
-   .sass('src/scss/main.scss', 'assets/css')
-   .version()
-   .browserSync({
-    files: ['**/*.twig', 'assets/**/*.*'],
-    proxy: 'tjfogarty.dev'
-   })
-   .sourceMaps()
-   .webpackConfig({
-      output: {
-        publicPath: '/wp-content/themes/teej/'
-      }
-    })
-   .autoload({});
+let browserSyncConfig = {
+  files: ['**/*.twig'],
+  proxy: 'tjfogarty.dev'
+}
+
+let extractConfig = ['vue', 'vuex', 'vue-router', 'prismjs']
+
+mix
+  .js('src/js/main.js', 'assets/js')
+  .sass('src/scss/main.scss', 'assets/css')
+  .browserSync(browserSyncConfig)
+  .extract(extractConfig)
+  .webpackConfig(webpackConfig)
+  .sourceMaps()
+  .options({
+    purifyCss: true
+  })
 
 // Full API
 // mix.js(src, output);
 // mix.react(src, output); <-- Identical to mix.js(), but registers React Babel compilation.
+// mix.ts(src, output); <-- Requires tsconfig.json to exist in the same folder as webpack.mix.js
 // mix.extract(vendorLibs);
 // mix.sass(src, output);
 // mix.standaloneSass('src', output); <-- Faster, but isolated from Webpack.
+// mix.fastSass('src', output); <-- Alias for mix.standaloneSass().
 // mix.less(src, output);
 // mix.stylus(src, output);
+// mix.postCss(src, output, [require('postcss-some-plugin')()]);
 // mix.browserSync('my-site.dev');
 // mix.combine(files, destination);
 // mix.babel(files, destination); <-- Identical to mix.combine(), but also includes Babel compilation.

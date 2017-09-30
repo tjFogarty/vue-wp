@@ -1,13 +1,15 @@
+import noop from 'lodash/noop'
+
 const Utils = {
   /**
    * Waits for the DOM to be ready
    * @param fn
    */
-  documentReady (fn = () => {}) {
+  documentReady (fn = noop) {
     if (document.readyState !== 'loading') {
-      fn();
+      fn()
     } else {
-      document.addEventListener('DOMContentLoaded', fn);
+      document.addEventListener('DOMContentLoaded', fn)
     }
   },
 
@@ -17,10 +19,9 @@ const Utils = {
    */
   detectCodeHighlight () {
     if (document.querySelector('pre')) {
-      import('prismjs')
-        .then(Prism => Prism.highlightAll());
+      Prism.highlightAll()
     }
   }
-};
+}
 
-export default Utils;
+export default Utils
