@@ -1,6 +1,12 @@
 <template>
   <div v-if="post" class="section">
     <h1 class="title is-1">{{ post.title.rendered }}</h1>
+    
+    <div v-if="post.categories && post.categories.length">
+        <span v-for="cat in post.categories" :key="cat.slug" class="tag is-warning">
+          {{ cat.name }}
+        </span>
+    </div>
 
     <div class="content" v-html="post.content.rendered"></div>
   </div>

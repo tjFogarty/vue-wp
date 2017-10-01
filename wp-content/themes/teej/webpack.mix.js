@@ -1,9 +1,12 @@
 const mix = require('laravel-mix')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 
 let webpackConfig = {
   output: {
     publicPath: '/wp-content/themes/teej/'
   },
+  plugins: [new BundleAnalyzerPlugin()],
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
@@ -18,7 +21,7 @@ let browserSyncConfig = {
 
 let sassConfig = {}
 
-let extractConfig = ['vue', 'vuex', 'vue-router', 'prismjs']
+let extractConfig = ['vue', 'vuex', 'vue-router', 'prismjs', 'babel-polyfill']
 
 mix
   .js('src/js/main.js', 'assets/js')

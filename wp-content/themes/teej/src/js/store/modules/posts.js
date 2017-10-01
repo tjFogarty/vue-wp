@@ -1,4 +1,5 @@
 import api from '../api'
+import 'babel-polyfill'
 
 const state = {
   all: [],
@@ -12,29 +13,35 @@ const getters = {
 }
 
 const actions = {
-  getAllPosts ({ commit }) {
-    api.posts().then((data, err) => {
-      if (err) {
-        console.log(err)
-      }
-
-      commit('RECIEVE_POSTS', { posts: data })
-    })
+  getAllPosts: async ({ commit }) => {
+    try {
+      let posts = await api.posts()
+      commit('RECIEVE_POSTS', { posts })
+    } catch (err) {
+      console.log(err)
+    }
   },
 
-  getSinglePost (context, { slug }) {
-    let post = context.state.all.find(post => post.slug === slug)
+  getSinglePost: async (context, { slug }) => {
+    let singlePost = null
+    let categories = null
 
-    if (post) {
-      context.commit('RECIEVE_POST', { post })
-    } else {
-      api.posts().slug(slug).then((data, err) => {
-        if (err) {
-          console.log(err)
+    context.commit('RECIEVE_POST', {
+      post: null
+    })
+
+    try {
+      singlePost = await api.posts().slug(slug)
+      categories = await api.categories().forPost(singlePost[0].id)
+
+      context.commit('RECIEVE_POST', {
+        post: {
+          ...singlePost[0],
+          categories
         }
-
-        context.commit('RECIEVE_POST', { post: data[0] })
       })
+    } catch (err) {
+      console.log(err)
     }
   }
 }

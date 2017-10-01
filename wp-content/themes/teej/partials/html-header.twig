@@ -16,5 +16,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#012A36">
   <link rel="pingback" href="{{ site.pingback_url }}">
+  <link rel="preload" href="{{ site.theme.link }}/assets/js/manifest.js" as="script">
+  <link rel="preload" href="{{ site.theme.link }}/assets/js/vendor.js" as="script">
+  <link rel="preload" href="{{ site.theme.link }}/assets/js/main.js" as="script">
+  <link rel="preload" href="{{ site.theme.link }}/assets/css/main.css" as="style">
   
   {{ function('wp_head') }}

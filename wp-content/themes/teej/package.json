@@ -14,6 +14,8 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "eslint": "^4.8.0",
@@ -27,10 +29,12 @@
     "eslint-plugin-standard": "^3.0.1",
     "laravel-mix": "^1.4.5",
     "purify-css": "^1.2.5",
-    "purifycss-webpack": "^0.7.0"
+    "purifycss-webpack": "^0.7.0",
+    "webpack-bundle-analyzer": "^2.9.0"
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-polyfill": "^6.26.0",
     "bulma": "^0.5.3",
     "lodash": "^4.17.4",
     "normalize-scss": "^6.0.0",

@@ -1,7 +1,9 @@
 <template>
   <div>
     <site-header></site-header>
-    <router-view></router-view>
+    <transition name="fade" appear mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -15,3 +17,16 @@ export default {
 }
 </script>
 
+<style>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .2s ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
+</style>
