@@ -17,6 +17,12 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'SinglePost',
+  
+  metaInfo () {
+    return {
+      title: this.post ? this.post.title.rendered : 'TJ Fogarty'
+    }
+  },
 
   computed: mapGetters(['post']),
 

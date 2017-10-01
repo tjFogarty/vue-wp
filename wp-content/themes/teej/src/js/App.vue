@@ -13,6 +13,13 @@ import SiteHeader from './features/header/index.vue'
 
 export default {
   name: 'App',
+
+  metaInfo() {
+    return {
+      title: 'TJ Fogarty | Web Developer'
+    }
+  },
+
   components: { SiteHeader }
 }
 </script>

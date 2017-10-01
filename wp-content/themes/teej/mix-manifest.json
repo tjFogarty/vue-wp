@@ -1,14 +1,8 @@
 {
     "/single-post.js": "/single-post.js",
-    "/single-post.js.map": "/single-post.js.map",
     "/post-list.js": "/post-list.js",
-    "/post-list.js.map": "/post-list.js.map",
     "/assets/js/vendor.js": "/assets/js/vendor.js",
-    "/assets/js/vendor.js.map": "/assets/js/vendor.js.map",
     "/assets/js/main.js": "/assets/js/main.js",
     "/assets/css/main.css": "/assets/css/main.css",
-    "/assets/js/main.js.map": "/assets/js/main.js.map",
-    "/assets/css/main.css.map": "/assets/css/main.css.map",
-    "/assets/js/manifest.js": "/assets/js/manifest.js",
-    "/assets/js/manifest.js.map": "/assets/js/manifest.js.map"
+    "/assets/js/manifest.js": "/assets/js/manifest.js"
 }

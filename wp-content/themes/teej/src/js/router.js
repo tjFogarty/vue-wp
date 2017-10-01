@@ -12,11 +12,17 @@ const SinglePost = () => {
 }
 
 const routes = [
-  { path: '/', component: PostList },
-  { path: '/:slug', component: SinglePost }
+  {
+    path: '/',
+    component: PostList
+  },
+  {
+    path: '/:slug',
+    component: SinglePost
+  }
 ]
 
- export default new VueRouter({
+export default new VueRouter({
   mode: 'history',
   routes
 })
