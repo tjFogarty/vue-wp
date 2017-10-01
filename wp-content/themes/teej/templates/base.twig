@@ -11,6 +11,11 @@
 		<main class="c-content" role="main">
 			<div id="app"></div>
 		</main>
+		
+		<noscript>
+			{% block content %}
+			{% endblock %}
+		</noscript>
 
 		{% block footer %}
 			{{ function('wp_footer') }}

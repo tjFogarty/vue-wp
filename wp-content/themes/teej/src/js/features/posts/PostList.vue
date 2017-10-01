@@ -10,16 +10,18 @@
       </div>
     </section>
     
-    <div v-for="post in allPosts" :key="post.id" class="container">
-      <h2 class="title is-4">{{ post.title.rendered }}</h2>
-      
-      <div v-html="post.excerpt.rendered"></div>
-
-      <router-link class="button is-primary" :to="'/' + post.slug">
-        View Post
-      </router-link>
-      
-      <hr />
+    <div class="container">
+      <div v-for="post in allPosts" :key="post.id">
+        <h2 class="title is-4">{{ post.title.rendered }}</h2>
+        
+        <div v-html="post.excerpt.rendered"></div>
+  
+        <router-link class="button is-primary" :to="'/' + post.slug">
+          View Post
+        </router-link>
+        
+        <hr />
+      </div>
     </div>
   </div>
 </template>
