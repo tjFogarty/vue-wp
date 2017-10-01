@@ -12,10 +12,6 @@
 /* Colors
    ========================================================================== */
 
-.button {
-  text-decoration: none;
-}
-
 /*! bulma.io v0.5.3 | MIT License | github.com/jgthms/bulma */
 
 @-webkit-keyframes spinAround {
@@ -71,6 +67,10 @@ html {
 *:before,*:after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
+}
+
+embed {
+  max-width: 100%;
 }
 
 html {
