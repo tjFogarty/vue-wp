@@ -24,9 +24,18 @@
       </div>
     </div>
     
-    <div class="level container">
-      <router-link to="/" class="button">Previous Page</router-link>
-      <router-link to="/page/2" class="button">Next Page</router-link>
+    <div class="level container" v-if="pagination">
+      <router-link :to="'/page/' + pagination.prev" class="button is-prev" v-if="pagination.prev">
+        Previous Page
+      </router-link>
+      <button v-else class="button" disabled>Previous Page</button>
+      
+      <span>Page {{ currentPage }} of {{ allPosts._paging.totalPages }}</span>
+      
+      <router-link :to="'/page/' + pagination.next" class="button is-next" v-if="pagination.next">
+        Next Page
+      </router-link>
+      <button v-else class="button" disabled>Next Page</button>
     </div>
   </div>
 </template>
@@ -37,7 +46,13 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'PostList',
   
-  computed: mapGetters(['allPosts']),
+  computed: {
+    ...mapGetters(['allPosts', 'pagination']),
+
+    currentPage () {
+      return this.$route.params.page || 1
+    }
+  },
   
   watch: {
     '$route' (to, from) {
@@ -57,4 +72,3 @@ export default {
   }
 }
 </script>
-

@@ -10,7 +10,19 @@ const state = {
 const getters = {
   allPosts: state => state.all,
   post: state => state.post,
-  route: state => state.route
+  route: state => state.route,
+  pagination: state => {
+    if (!state.all._paging) return null
+    let { links } = state.all._paging
+
+    let nextPage = links.next || null
+    let prevPage = links.prev || null
+
+    return {
+      next: nextPage ? nextPage.split('page=')[1] : null,
+      prev: prevPage ? prevPage.split('page=')[1] : null
+    }
+  }
 }
 
 const actions = {
