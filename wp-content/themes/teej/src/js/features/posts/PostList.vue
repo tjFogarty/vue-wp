@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section" v-if="allPosts.length">
     <section class="hero">
       <div class="hero-body">
         <div class="container">
@@ -23,6 +23,11 @@
         <hr />
       </div>
     </div>
+    
+    <div class="level container">
+      <router-link to="/" class="button">Previous Page</router-link>
+      <router-link to="/page/2" class="button">Next Page</router-link>
+    </div>
   </div>
 </template>
 
@@ -33,9 +38,22 @@ export default {
   name: 'PostList',
   
   computed: mapGetters(['allPosts']),
+  
+  watch: {
+    '$route' (to, from) {
+      this.loadPage(to.params.page || 1)
+    }
+  },
 
   mounted() {
-    this.$store.dispatch('getAllPosts')
+    this.loadPage(this.$route.params.page || 1)
+  },
+  
+  methods: {
+    loadPage(page) {
+      this.$store.dispatch('getAllPosts', page)
+      window.scrollTo(0, 0)
+    }
   }
 }
 </script>

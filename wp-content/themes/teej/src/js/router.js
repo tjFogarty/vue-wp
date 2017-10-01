@@ -14,7 +14,20 @@ const SinglePost = () => {
 const routes = [
   {
     path: '/',
+    component: PostList,
+    alias: 'home'
+  },
+  {
+    path: '/page/:page',
     component: PostList
+  },
+  {
+    path: '/page',
+    redirect: '/'
+  },
+  {
+    path: '/page/1',
+    redirect: '/'
   },
   {
     path: '/:slug',

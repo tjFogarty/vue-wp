@@ -9,13 +9,15 @@ const state = {
 
 const getters = {
   allPosts: state => state.all,
-  post: state => state.post
+  post: state => state.post,
+  route: state => state.route
 }
 
 const actions = {
-  getAllPosts: async ({ commit }) => {
+  getAllPosts: async ({ commit }, page = 1) => {
     try {
-      let posts = await api.posts()
+      let posts = await api.posts().page(page)
+
       commit('RECIEVE_POSTS', { posts })
     } catch (err) {
       console.log(err)
@@ -23,16 +25,13 @@ const actions = {
   },
 
   getSinglePost: async (context, { slug }) => {
-    let singlePost = null
-    let categories = null
-
     context.commit('RECIEVE_POST', {
       post: null
     })
 
     try {
-      singlePost = await api.posts().slug(slug)
-      categories = await api.categories().forPost(singlePost[0].id)
+      let singlePost = await api.posts().slug(slug)
+      let categories = await api.categories().forPost(singlePost[0].id)
 
       context.commit('RECIEVE_POST', {
         post: {
