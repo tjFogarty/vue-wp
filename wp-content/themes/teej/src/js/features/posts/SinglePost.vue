@@ -20,7 +20,7 @@ export default {
   
   metaInfo () {
     return {
-      title: this.post ? this.post.title.rendered : 'TJ Fogarty'
+      title: this.post ? this.post.title.rendered : window.WP_SETTINGS.siteName
     }
   },
 

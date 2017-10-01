@@ -21,7 +21,17 @@ let browserSyncConfig = {
 
 let sassConfig = {}
 
-let extractConfig = ['vue', 'vuex', 'vue-router', 'prismjs', 'babel-polyfill']
+let extractConfig = [
+  'vue',
+  'vuex',
+  'vuex-router-sync',
+  'vue-meta',
+  'vue-router',
+  'prismjs',
+  'babel-polyfill',
+  'wpapi',
+  'lodash'
+]
 
 mix
   .js('src/js/main.js', 'assets/js')

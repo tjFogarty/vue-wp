@@ -16,7 +16,7 @@ export default {
 
   metaInfo() {
     return {
-      title: 'TJ Fogarty | Web Developer'
+      title: window.WP_SETTINGS.siteName
     }
   },
 

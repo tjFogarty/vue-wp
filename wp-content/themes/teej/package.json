@@ -37,7 +37,6 @@
     "babel-polyfill": "^6.26.0",
     "bulma": "^0.5.3",
     "lodash": "^4.17.4",
-    "normalize-scss": "^6.0.0",
     "prismjs": "^1.6.0",
     "vue": "^2.4.4",
     "vue-meta": "^1.2.0",
