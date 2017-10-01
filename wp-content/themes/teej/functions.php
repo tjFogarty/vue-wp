@@ -94,11 +94,6 @@ class TeejSite extends TimberSite
         return $context;
     }
 
-    public function mix($asset)
-    {
-        return get_template_directory_uri() . mix($asset, __DIR__);
-    }
-
     public function addToTwig($twig)
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
