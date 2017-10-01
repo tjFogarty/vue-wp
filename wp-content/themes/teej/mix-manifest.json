@@ -1,4 +1,6 @@
 {
+    "/single-post.js": "/single-post.js",
+    "/post-list.js": "/post-list.js",
     "/assets/js/main.js": "/assets/js/main.js",
     "/assets/css/main.css": "/assets/css/main.css",
     "/assets/js/vendor.js": "/assets/js/vendor.js",
