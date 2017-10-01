@@ -24,6 +24,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { loadCodePenEmbeds, loadSyntaxHighlighter } from './post-helpers'
 
 export default {
   name: 'SinglePost',
@@ -40,14 +41,10 @@ export default {
     window.scrollTo(0, 0)
     this.$store.dispatch('getSinglePost', { slug: this.$route.params.slug })
       .then(() => {
-        // https://production-assets.codepen.io/assets/embed/ei.js
-        if (document.querySelector('.codepen')) {
-          let s = document.createElement('script')
-          s.type = 'text/javascript'
-          s.async = true
-          s.src = 'https://production-assets.codepen.io/assets/embed/ei.js'
-          var x = document.getElementsByTagName('script')[0]
-          x.parentNode.insertBefore(s, x)
+        loadCodePenEmbeds()
+        
+        if (this.$el.querySelector('pre code')) {
+          loadSyntaxHighlighter()
         }
       })
   }

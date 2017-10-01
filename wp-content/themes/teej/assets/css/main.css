@@ -40,7 +40,7 @@
 
 /*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */
 
-html,body,hr,h1,h2,h3,h4,h5,h6 {
+html,body,pre,hr,h1,h2,h3,h4,h5,h6 {
   margin: 0;
   padding: 0;
 }
@@ -69,10 +69,6 @@ html {
   box-sizing: inherit;
 }
 
-embed {
-  max-width: 100%;
-}
-
 html {
   background-color: #fff;
   font-size: 16px;
@@ -96,6 +92,12 @@ body,button {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
+code,pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: monospace;
+}
+
 body {
   color: #4a4a4a;
   font-size: 1rem;
@@ -113,6 +115,14 @@ a:hover {
   color: #363636;
 }
 
+code {
+  background-color: whitesmoke;
+  color: #ff3860;
+  font-size: 0.875em;
+  font-weight: normal;
+  padding: 0.25em 0.5em 0.25em;
+}
+
 hr {
   background-color: #dbdbdb;
   border: none;
@@ -124,6 +134,24 @@ hr {
 span {
   font-style: inherit;
   font-weight: inherit;
+}
+
+pre {
+  -webkit-overflow-scrolling: touch;
+  background-color: whitesmoke;
+  color: #4a4a4a;
+  font-size: 0.875em;
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+pre code {
+  background-color: transparent;
+  color: currentColor;
+  font-size: 1em;
+  padding: 0;
 }
 
 .has-text-centered {
@@ -349,6 +377,10 @@ a.has-text-warning:hover,a.has-text-warning:focus {
   margin-bottom: 1.5rem;
 }
 
+.content pre:not(:last-child) {
+  margin-bottom: 1em;
+}
+
 .content h1,.content h2,.content h3,.content h4,.content h5,.content h6 {
   color: #363636;
   font-weight: 400;
@@ -395,6 +427,14 @@ a.has-text-warning:hover,a.has-text-warning:focus {
 .content h6 {
   font-size: 1em;
   margin-bottom: 1em;
+}
+
+.content pre {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  padding: 1.25em 1.5em;
+  white-space: pre;
+  word-wrap: normal;
 }
 
 .label {
@@ -505,6 +545,10 @@ a.tag:hover {
 
 .level:not(:last-child) {
   margin-bottom: 1.5rem;
+}
+
+.level code {
+  border-radius: 3px;
 }
 
 @media screen and (min-width: 769px), print {
