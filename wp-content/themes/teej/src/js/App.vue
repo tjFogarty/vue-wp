@@ -27,11 +27,18 @@ export default {
 <style>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .2s ease;
+  transition: opacity .2s ease, transform ease 0.2s;
+  will-change: opacity, transform;
 }
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>

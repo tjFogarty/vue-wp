@@ -1,14 +1,24 @@
 <template>
-  <div v-if="post" class="section">
-    <h1 class="title is-1">{{ post.title.rendered }}</h1>
+  <div v-if="post">
+    <section class="hero is-bold is-dark">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            {{ post.title.rendered }}
+          </h1>
+        </div>
+      </div>
+    </section>
     
-    <div v-if="post.categories && post.categories.length">
-        <span v-for="cat in post.categories" :key="cat.slug" class="tag is-warning">
-          {{ cat.name }}
-        </span>
+    <div class="section wrapper">
+      <div v-if="post.categories && post.categories.length">
+          <span v-for="cat in post.categories" :key="cat.slug" class="tag is-warning">
+            {{ cat.name }}
+          </span>
+      </div>
+  
+      <div class="content" v-html="post.content.rendered"></div>
     </div>
-
-    <div class="content" v-html="post.content.rendered"></div>
   </div>
 </template>
 

@@ -38,5 +38,9 @@ export default {
 </script>
 
 <style scoped>
-  
+.navbar {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+}
 </style>

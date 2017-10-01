@@ -18,15 +18,15 @@ const routes = [
     alias: 'home'
   },
   {
+    path: '/page/1',
+    redirect: '/'
+  },
+  {
     path: '/page/:page',
     component: PostList
   },
   {
     path: '/page',
-    redirect: '/'
-  },
-  {
-    path: '/page/1',
     redirect: '/'
   },
   {

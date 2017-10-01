@@ -4,13 +4,15 @@ import 'babel-polyfill'
 const state = {
   all: [],
   post: null,
-  error: ''
+  error: '',
+  isLoading: false
 }
 
 const getters = {
   allPosts: state => state.all,
   post: state => state.post,
   route: state => state.route,
+  isLoading: state => state.isLoading,
   pagination: state => {
     if (!state.all._paging) return null
     let { links } = state.all._paging
@@ -27,6 +29,8 @@ const getters = {
 
 const actions = {
   getAllPosts: async ({ commit }, page = 1) => {
+    commit('SET_LOADING', { isLoading: true })
+
     try {
       let posts = await api.posts().page(page)
 
@@ -34,10 +38,14 @@ const actions = {
     } catch (err) {
       console.log(err)
     }
+
+    commit('SET_LOADING', { isLoading: false })
   },
 
-  getSinglePost: async (context, { slug }) => {
-    context.commit('RECIEVE_POST', {
+  getSinglePost: async ({ commit }, { slug }) => {
+    commit('SET_LOADING', { isLoading: true })
+
+    commit('RECIEVE_POST', {
       post: null
     })
 
@@ -45,7 +53,7 @@ const actions = {
       let singlePost = await api.posts().slug(slug)
       let categories = await api.categories().forPost(singlePost[0].id)
 
-      context.commit('RECIEVE_POST', {
+      commit('RECIEVE_POST', {
         post: {
           ...singlePost[0],
           categories
@@ -54,6 +62,8 @@ const actions = {
     } catch (err) {
       console.log(err)
     }
+
+    commit('SET_LOADING', { isLoading: false })
   }
 }
 
@@ -64,6 +74,10 @@ const mutations = {
 
   RECIEVE_POST: (state, { post }) => {
     state.post = post
+  },
+
+  SET_LOADING: (state, { isLoading }) => {
+    state.isLoading = isLoading
   }
 }
 
