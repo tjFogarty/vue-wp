@@ -1,12 +1,10 @@
 const mix = require('laravel-mix')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin
 
 let webpackConfig = {
   output: {
-    publicPath: '/wp-content/themes/teej/'
+    publicPath: '/wp-content/themes/teej/',
+    chunkFilename: 'assets/js/chunks/[name].js'
   },
-  plugins: [new BundleAnalyzerPlugin()],
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
