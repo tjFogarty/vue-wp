@@ -11,8 +11,8 @@
     </section>
     
     <div class="section wrapper">
-      <div v-if="post.categories && post.categories.length">
-          <span v-for="cat in post.categories" :key="cat.slug" class="tag is-warning">
+      <div v-if="currentCategories && currentCategories.length">
+          <span v-for="cat in currentCategories" :key="cat.slug" class="tag is-warning">
             {{ cat.name }}
           </span>
       </div>
@@ -35,7 +35,7 @@ export default {
     }
   },
 
-  computed: mapGetters(['post']),
+  computed: mapGetters(['post', 'currentCategories']),
 
   mounted() {
     window.scrollTo(0, 0)

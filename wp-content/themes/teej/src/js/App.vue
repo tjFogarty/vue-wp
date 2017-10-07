@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import SiteHeader from './features/header/index.vue'
 
 export default {
@@ -19,8 +19,18 @@ export default {
       title: window.WP_SETTINGS.siteName
     }
   },
+  
+  components: { SiteHeader },
+  
+  computed: mapGetters(['categories']),
 
-  components: { SiteHeader }
+  mounted () {
+    if (!this.categories.length) {
+      this.getCategories()
+    }
+  },
+  
+  methods: mapActions(['getCategories'])
 }
 </script>
 

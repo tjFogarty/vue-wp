@@ -5,6 +5,7 @@ const state = {
   all: [],
   post: null,
   error: '',
+  categories: [],
   isLoading: false
 }
 
@@ -13,10 +14,16 @@ const getters = {
   post: state => state.post,
   route: state => state.route,
   isLoading: state => state.isLoading,
+  categories: state => state.categories,
+  currentCategories: ({ categories, post }) => {
+    if (!post || !post.categories.length) return []
+
+    return categories.filter(c => post.categories.includes(c.id))
+  },
   pagination: state => {
     if (!state.all._paging) return null
-    let { links } = state.all._paging
 
+    let { links } = state.all._paging
     let nextPage = links.next || null
     let prevPage = links.prev || null
 
@@ -28,12 +35,11 @@ const getters = {
 }
 
 const actions = {
-  getAllPosts: async ({ commit }, page = 1) => {
+  async getAllPosts ({ commit }, page = 1) {
     commit('SET_LOADING', { isLoading: true })
 
     try {
       let posts = await api.posts().page(page)
-
       commit('RECIEVE_POSTS', { posts })
     } catch (err) {
       console.log(err)
@@ -42,7 +48,7 @@ const actions = {
     commit('SET_LOADING', { isLoading: false })
   },
 
-  getSinglePost: async ({ commit }, { slug }) => {
+  async getSinglePost ({ commit }, { slug }) {
     commit('SET_LOADING', { isLoading: true })
 
     commit('RECIEVE_POST', {
@@ -51,19 +57,19 @@ const actions = {
 
     try {
       let singlePost = await api.posts().slug(slug)
-      let categories = await api.categories().forPost(singlePost[0].id)
-
       commit('RECIEVE_POST', {
-        post: {
-          ...singlePost[0],
-          categories
-        }
+        post: singlePost[0]
       })
     } catch (err) {
       console.log(err)
     }
 
     commit('SET_LOADING', { isLoading: false })
+  },
+
+  async getCategories ({ commit }) {
+    let categories = await api.categories()
+    commit('RECIEVE_CATEGORIES', { categories })
   }
 }
 
@@ -74,6 +80,10 @@ const mutations = {
 
   RECIEVE_POST: (state, { post }) => {
     state.post = post
+  },
+
+  RECIEVE_CATEGORIES: (state, { categories }) => {
+    state.categories = categories
   },
 
   SET_LOADING: (state, { isLoading }) => {

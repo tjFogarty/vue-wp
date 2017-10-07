@@ -25,6 +25,7 @@ let extractConfig = [
   'vuex-router-sync',
   'vue-meta',
   'vue-router',
+  'vuex-persistedstate',
   'prismjs',
   'babel-polyfill',
   'wpapi',
