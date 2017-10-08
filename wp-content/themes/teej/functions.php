@@ -7,6 +7,7 @@ use TimberMenu;
 use TimberSite;
 use Twig_Extension_StringLoader;
 use Twig_SimpleFilter;
+use WP_Query;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -48,6 +49,24 @@ class TeejSite extends TimberSite
 
         parent::__construct();
     }
+    
+    // thank you, kind sir, who created this:
+    // https://gist.github.com/noahbass/f7ed91473bcf93bbb95f
+    public function siteLastUpdated($d = 'd-m-y H:i')
+    {
+        $recent = new WP_Query("showposts=1&orderby=modified&post_status=publish");
+
+        if ($recent->have_posts()) {
+            while ($recent->have_posts()) {
+                $recent->the_post();
+                $lastUpdated = get_the_modified_date($d);
+            }
+
+            return $lastUpdated;
+        }
+        
+        return '';
+    }
 
     public function removeAssetVer($src)
     {
@@ -74,6 +93,7 @@ class TeejSite extends TimberSite
         
         wp_localize_script('app', 'WP_SETTINGS', [
             'siteName' => get_bloginfo(),
+            'lastUpdated' => $this->siteLastUpdated()
         ]);
     }
 

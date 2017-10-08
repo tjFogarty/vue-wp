@@ -14,7 +14,7 @@ let webpackConfig = {
 
 let browserSyncConfig = {
   files: ['**/*.twig', 'assets/js/*.js', 'assets/css/*.css'],
-  proxy: 'tjfogarty.dev'
+  proxy: 'https://tjfogarty.dev'
 }
 
 let sassConfig = {}
