@@ -1,6 +1,5 @@
 import api from '../../api'
 import * as types from './mutation-types'
-import 'babel-polyfill'
 
 export const getAllPosts = async ({ commit }, page = 1) => {
   commit(types.SET_LOADING, { isLoading: true })
