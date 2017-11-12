@@ -1,3 +1,8 @@
 wp-content
 hot
 *.log
+
+# build assets
+assets/js
+assets/css
+mix-manifest.json
